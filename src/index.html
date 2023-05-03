@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Lista de contatos</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+  <link rel='stylesheet' type='text/css' media='screen' href='./styles/main.css'>
+  <script src='./js/services/main.js'></script>
+  <!-- utils -->
+  <script type="text/javascript" src="./js/utils/year.js"></script>
+  <script type="text/javascript" src="./js/utils/renderContactList.js"></script>
+  <!-- services -->
+  <script type="text/javascript" src="./js/services/main.js"></script>
+  <!-- icons -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+  <header>
+    <h1 class="text-white">Lista de contatos</h1>
+  </header>
+
+  <section class="flex justify-center align-center column padding-50">
+    <div style="width: 600px;">
+      <div class="contact-list-header flex justify-between">
+        <h2 class="text-white">Meus contatos</h2>
+        <button class="icon-button" onclick="window.location.href = './pages/new-contact.html';">
+          <ion-icon name="person-add-outline" class="text-white"></ion-icon>
+          <h3 class="text-white">Adicionar contato</h3>
+        </button>
+      </div>
+      <div class="container-contact">
+        <div id="item-list"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p class="text-color" id="year"></p>.
+  </footer>
+</body>
+
+</html>
+
+<script>
+  let year = Year();
+  document.getElementById("year").innerHTML =
+    "Desenvolvido por: Rainério J. S. Costa, " + year + ". MVP 1 ENG. de software";
+
+  async function _getContactList() {
+    const responseApi = await getContactList()
+
+    renderContactList("item-list", responseApi.contacts)
+  }
+  _getContactList()
+</script>

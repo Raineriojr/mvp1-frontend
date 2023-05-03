@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+form{
+  background-color: #2c2c2c;
+  padding: 20px;
+}
+
+label {
+  font-size: 16px;
+  color: #D1D1D1;
+  font-family: 'Lora', serif;
+}
+
+input {
+  margin: 5px 0 10px 0;
+  height: 25px;
+  padding: 2px 10px 2px 10px;
+  border-radius: 5px;
+  background-color: #3d3d3d;
+  color: #f0f0f0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+select {
+  margin: 5px 0 10px 0;
+  border-radius: 5px;
+  height: 30px;
+  padding: 2px 10px 2px 10px;
+  background-color: #3d3d3d;
+  color: #f0f0f0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.button {
+  margin-top: 10px;
+  height: 35px;
+  border-radius: 8px;
+  background-color: #BB86FC;
+  color: #f0f0f0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.spacing {
+  padding: 0 ;
+}

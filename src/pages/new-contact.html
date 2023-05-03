@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novo contato</title>
+
+  <link rel='stylesheet' type='text/css' media='screen' href='../styles/main.css'>
+  <link rel='stylesheet' type='text/css' media='screen' href='./style.css'>
+
+  <script type="text/javascript" src="../js/services/main.js"></script>
+</head>
+
+<body>
+  <header>
+    <h1 class="text-white">Cadastrar novo contato</h1>
+  </header>
+
+  <section class="flex align-center column padding-50">
+    <div style="width: 600px;">
+      <div class="contact-list-header flex justify-between">
+        <h2 class="text-white">Novo contato</h2>
+      </div>
+      <form class="flex column">
+        <div class="flex align-center justify-between wrap" style="margin-bottom: 5px;">
+          <div class="flex align-center" style="margin-right: 10px;">
+            <label for="firstname">Nome: </label>
+            <input class="flex" placeholder="Primeiro nome" type="text" id="firstname" name="firstname">
+          </div>
+          <div class="flex align-center">
+            <label for="lastname">Sobrenome: </label>
+            <input class="flex" placeholder="Último nome" text="text" id="lastname" name="lastname">
+          </div>
+        </div>
+
+        <label for="phone-type">Tipo contato: </label>
+        <select name="phone-type" id="phone-type">
+          <option value="celular">Celular</option>
+          <option value="casa">Casa</option>
+          <option value="trabalho">Trabalho</option>
+          <option value="fixo">Fixo</option>
+        </select>
+
+        <label for="phone">Número: </label>
+        <input placeholder="(99) 99999-9999" type="text" id="phone" name="phone">
+
+        <label for="email">Email: </label>
+        <input placeholder="email@email.com" type="email" id="email" name="email">
+
+        <button class="button" onclick="getFormData()">
+          Enviar
+        </button>
+      </form>
+    </div>
+  </section>
+</body>
+
+<script>
+  async function getFormData() {
+    event.preventDefault();
+    let firstname = document.getElementById("firstname").value
+    let lastname = document.getElementById("lastname").value
+    let phone = document.getElementById("phone").value
+    let phone_type = document.getElementById("phone-type").value
+    let email = document.getElementById("email").value
+
+    let form_data = {
+      firstname,
+      lastname,
+      phone,
+      phone_type,
+      email,
+
+    }
+    const response = await createContact(form_data)
+    if (response.status === 200) {
+      alert("Contato cadastrado com sucesso! Redirecionando...")
+      return setTimeout(() => { return window.location.href = '../index.html' }, 2000)
+    } else {
+      alert("Falha ao cadastrar novo contato")
+    }
+ }
+</script>
+
+</html>
